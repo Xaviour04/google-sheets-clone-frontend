@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Web site created using create-snowpack-app"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="/index.css" />
+    <title>Snowpack App</title>
+  </head>
+
+  <body>
+    <header>
+      <img class="logo" src="/assets/google-sheets.svg" alt="Google Sheets" />
+      <input
+        id="filename"
+        type="text"
+        value="Untitled"
+        aria-label="Rename File"
+      />
+      <nav>
+        <a href="#">File</a>
+        <a href="#">Edit</a>
+        <a href="#">View</a>
+        <a href="#">Insert</a>
+        <a href="#">Format</a>
+        <a href="#">Data</a>
+        <a href="#">Tools</a>
+        <a href="#">Extensions</a>
+        <a href="#">Help</a>
+      </nav>
+      <button type="button" class="download-btn">
+        <img src="/assets/download.svg" aria-hidden="true" />
+        Download
+      </button>
+    </header>
+
+    <main>
+      <div class="canvas-container">
+        <canvas id="main-table-canvas"></canvas>
+
+        <div id="overlays">
+          <input type="text" name="userinput" id="userinput" />
+        </div>
+      </div>
+
+      <span id="x-axis"></span>
+      <span id="y-axis"></span>
+    </main>
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <script>
+      document.body.dataset.config = JSON.stringify({{ . }});
+    </script>
+    <script type="module" src="/dist/index.js"></script>
+  </body>
+</html>

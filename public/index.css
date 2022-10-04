@@ -1,0 +1,174 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-clr: 24, 26, 27;
+  --fg-clr: 232, 230, 227;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(var(--bg-clr));
+  color: rgb(var(--fg-clr));
+
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: repeat(2, 1fr);
+
+  align-items: center;
+
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+
+  padding: 2.5rem;
+}
+
+header .logo {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+header #filename {
+  grid-column: 2;
+  grid-row: 1;
+
+  background-color: rgba(0, 0, 0, 10%);
+  color: rgb(var(--fg-clr));
+  border: none;
+
+  font-size: 1rem;
+
+  padding: 0.5em 1em;
+  margin-right: auto;
+}
+
+header #filename:focus-within {
+  outline: 2px solid blue;
+}
+
+header nav {
+  grid-column: 2;
+  grid-row: 2;
+
+  display: flex;
+  gap: 0;
+}
+
+header nav a {
+  text-decoration: none;
+  color: rgb(var(--fg-clr));
+
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+header nav a:hover {
+  background-color: rgba(0, 0, 0, 20%);
+}
+
+header .download-btn {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(var(--fg-clr));
+
+  padding: 0.5rem 1rem;
+
+  border: none;
+  background-color: #13662d;
+  border-radius: 0.25rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+
+  bottom: -2px;
+  left: 2.5rem;
+  right: 2.5rem;
+  height: 2px;
+
+  background-color: rgba(var(--fg-clr), 25%);
+}
+
+main {
+  margin: 2.5rem;
+
+  width: calc(100% - 5rem);
+  height: 100%;
+
+  overflow: scroll;
+  position: relative;
+}
+
+.canvas-container {
+  position: sticky;
+  inset: 0;
+}
+
+#main-table-canvas,
+#overlays {
+  position: absolute;
+  inset: 0;
+}
+
+#overlays {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#userinput {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #1774ed;
+  border-radius: 2px;
+  transform: translate(-100%, -100%);
+  color: white;
+
+  background: #0d0d0d;
+  pointer-events: none;
+
+  font: 16px sans-serif;
+  text-align: center;
+}
+
+#userinput:focus-within {
+  outline: 2px solid white;
+}
+
+#x-axis,
+#y-axis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+
+  z-index: 2;
+}
